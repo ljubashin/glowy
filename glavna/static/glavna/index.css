@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css?family=Neucha");
+    .welcome{
+        box-sizing: border-box;
+        position: absolute;
+        width: 98%;
+        height: 50%;
+        left: 1%;
+        right: 1%;
+        top: 15%;
+        border: 2px solid #806B02;
+        border-radius: 39px;
+    }
+    
+    .welcome > h1{
+        position: absolute;
+        width: 40%;
+        height: 32px;
+        left: 100px;
+        top: 40%;
+        font-family: 'Neucha';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 44px;
+        color: #FFD600;
+    }
+    .welcome > p{
+        position: absolute;
+        width: 35%;
+        height: 99px;
+        left: 100px;
+        top: 50%;
+        font-family: 'Neucha';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 33px;
+        color: #FFFFFF;
+    }
+
+.featured{
+    position: absolute;
+    top: 70%;
+    left: 5%;
+}
+.featured > h1{
+    font-family: 'Neucha';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 44px;
+    color: #FFD600;
+}
+
+.video > img{
+    width: 204px;
+    height: 122px;
+}
+.tride{
+    position: absolute;
+    left: 60%;
+    width: 20%;
+    height: 100%;
+}

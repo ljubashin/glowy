@@ -1,0 +1,33 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    {% block css_files %}
+        <link rel="stylesheet" href="{% static '/base.css' %}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    {% endblock css_files %}
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{% url "home" %}"><h1 class="logo">Glowy</h1></a>
+        <ul class="nav-links">
+          <li><span class="material-symbols-outlined">
+            home
+            </span></li>
+          <li><span class="material-symbols-outlined">
+            video_call
+            </span>
+        </li>
+          <li><span class="material-symbols-outlined">
+            person
+            </span>
+        </li>
+        </ul>
+      </nav>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

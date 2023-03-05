@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'glavna/index.css' %}">
+  <link rel="stylesheet" href="{% static '/base.css' %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+{% endblock css_files %}
+{% block script %}
+  
+{% endblock script %}
+{% block title %}
+  Početna
+{% endblock title %}
+{% block content %}
+    <div class="welcome">
+      <model-viewer class="tride" src="{% static 'glavna/modeli/gato.glb' %}" rotation-per-second="30deg" auto-rotate poster="poster.webp" shadow-intensity="1"></model-viewer>
+      <h1>WELCOME TO GLOWY</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="featured">
+      <h1>FEATURED</h1>
+      <br>
+      <a href="#" class="video"><img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-design-template-f41731052ef38859a77214e2be972d69_screen.jpg?ts=1630950507"></img></a>
+    </div>
+{% endblock content %}
