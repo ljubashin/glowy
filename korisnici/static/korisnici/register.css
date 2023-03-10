@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css?family=Neucha");
+
+form{
+    box-sizing: border-box;
+    position: absolute;
+    width: 25%;
+    height: 65%;
+    margin-left: 35%;
+    margin-top: 10%;
+    border: 2px solid #806B02;
+    border-radius: 39px;   
+}
+.ime-forme{
+    font-family: 'Neucha';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 55px;
+    text-align: center;
+    color: #FFFFFF;
+}
+input{
+    font-family: 'Neucha';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    box-sizing: border-box;
+    border: 2px solid #806B02;
+    border-radius: 18px;
+    height: 7%;
+    width: 80%;
+    margin-left: 10%;
+    line-height: 0;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: transparent;
+}
+input[type=text]{padding:0 20px;}
+input[type=password]{padding:0 20px;}
+.loginbutton{
+    color: white;
+    font-family: 'Neucha';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    width: 142px;
+    height: 45px;
+    background: #806B02;
+    border-radius: 18px;
+    border: none;
+    margin-left: 10%;
+}
+.loginbutton:hover{
+    transition: 0.5s;
+    background: none;
+    border: 1px solid #806B02;
+    border-radius: 18px;
+}
+.signup{
+    color: white;
+    font-family: 'Neucha';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    width: 142px;
+    height: 45px;
+    background: none;
+    border: 1px solid #806B02;
+    border-radius: 18px;
+    float: right;
+    margin-right: 10%;
+    text-align: center;
+    padding: 2%;
+}
+.signup:hover{
+    transition: 0.5s;
+    background-color: #806B02;
+    color: white;
+    border: none;
+}
