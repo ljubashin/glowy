@@ -1,0 +1,6 @@
+{% load static %}
+<a href="{% url "video" video.slug %}" class="video">
+    <img src="{{ video.thumbnail.url }}">
+<p class="title">{{ video.title }}</p>
+<p class="user">By: {{ video.user}}</p>
+</a>
