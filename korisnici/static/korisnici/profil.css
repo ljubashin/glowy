@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Neucha");
+
+.imeprofila{
+    margin-top: 5%;
+    margin-left:10%;
+    font-family: 'Neucha';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 33px;
+    color: #FFFFFF;
+}

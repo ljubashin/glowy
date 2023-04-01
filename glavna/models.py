@@ -3,6 +3,7 @@ from django.utils.text import slugify
 from django.conf import settings
 from django.core.validators import MinLengthValidator
 from django.contrib.auth.models import User
+from django.core.validators import FileExtensionValidator
 
 # Create your models here.
 
@@ -15,7 +16,7 @@ class Category(models.Model):
 class Video(models.Model):
     title = models.CharField(max_length=100)
     thumbnail = models.ImageField(upload_to='videos/thumbnails/', null=True)
-    video = models.FileField(upload_to='videos/video/')
+    video = models.FileField(upload_to='videos/video/', validators=[FileExtensionValidator(allowed_extensions=["mp4", "mov"])])
     date = models.DateTimeField(auto_now=True)
     slug = models.SlugField(unique=True)
     user = models.OneToOneField(User, related_name='user',on_delete=models.CASCADE)    
@@ -28,3 +29,4 @@ class Video(models.Model):
 
     def __str__(self):
         return self.title
+    

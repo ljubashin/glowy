@@ -22,13 +22,19 @@
               <a href="{% url "login" %}"><span class="material-symbols-outlined"> video_call </span></a>
             {% endif %}
             </li>
-        <li>
+        
           {% if user.is_authenticated %}
+          <li>
+            <a href="{% url "profile" %}"><span class="material-symbols-outlined"> person </span></a>
+          </li>
+          <li>
             <a href="{% url "logout" %}"><span class="material-symbols-outlined"> logout </span></a>
+          </li>
           {% else %}
-            <a href="{% url "login" %}"><span class="material-symbols-outlined"> person </span></a>
+          <li>
+            <a href="{% url "login" %}"><span class="material-symbols-outlined"> person_add </span></a>
+          </li>
           {% endif %}
-        </li>
         </ul>
       </nav>
     {% block content %}
