@@ -14,13 +14,39 @@
             <video src="{{ video.video.url }}" type="video/mp4" controls preload autoplay></video>
             <div class="ispodvidea">
                 <p class="ime">{{ video.title }}</p>
-                <p class="author">{{ video.user }}</p>
+                <p class="author"><img src="{{ video.user.profil.image.url}}"></img> {{ video.user }}</p>
+                <p class="opis">{{video.description}}<p>
             </div>
         </div>
         <div class="drugi">
-            {% for video in videos %}
-                {% include 'glavna/includes/videos.html' %}
-            {% endfor %}
+            <div class="forma">
+                <form class="" action="{% url "video" video.slug %}" method="POST">
+                    {% csrf_token %}
+                    {% for form_field in review_form %}
+                        {{form_field.label_tag}}
+                        {{form_field}}
+                    {% endfor %}
+                    <div class="button-okvir">
+                    <button class="reviewbutton">Post</button>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </form>
+            </div>
+            <div>
+                {% for review in reviews %}
+                        <li class ="review">
+                            {% if review.like %}
+                            <h2 class="svida">{{review.user_name}} liked this video!</h2>
+                            {% else %}
+                            <h2 class="nesvida">{{review.user_name}} didn't like this video!</h2>
+                            {% endif %}
+                            <p>{{ review.text|linebreaks }}</p>
+                            <p>{{ review.date }}</p>
+                        </li>
+                {% endfor %}
+                </div>
         </div>
       </div>
 {% endblock content %}

@@ -3,7 +3,7 @@
 video{
     width: 90%;
     margin-left: 5%;
-    margin-top: 6%;
+    margin-top: 10%;
 }
 .ispodvidea{
     top: 60%;
@@ -28,6 +28,23 @@ video{
     line-height: 33px;
     color: #FFFFFF;
 }
+.author > img{
+    height: 5rem;
+}
+.opis{
+    background-color: rgb(61, 61, 61);
+    margin-top: 1%;
+    margin-left: 5%;
+    font-family: 'Neucha';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 33px;
+    color: #FFFFFF;
+    margin-right: 2rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
 .podloga {
     display: grid; 
     grid-auto-columns: 1fr; 
@@ -39,3 +56,76 @@ video{
   }
   .prvi { grid-area: prvi; }
   .drugi { grid-area: drugi; }
+
+.forma{
+    margin-top: 20%;
+}
+.form__field{
+    font-family: 'Neucha';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    box-sizing: border-box;
+    border: 2px solid #806B02;
+    border-radius: 18px;
+    background-color: transparent;
+    padding: 1rem;
+    color: white;
+    margin-right: 1rem;
+}
+label{
+    color: white;
+    font-family: 'Neucha';
+    font-style: normal;
+}
+button{
+    color: white;
+    font-family: 'Neucha';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    width: 50%;
+    height: 45px;
+    background: #806B02;
+    border-radius: 18px;
+    border: none;
+}
+button:hover{
+    transition: 0.2s;
+    background: none;
+    border: 1px solid #806B02;
+    border-radius: 18px;
+}
+.button-okvir{
+    text-align: center;
+}
+.review{
+    list-style: none;
+    background-color: rgb(61, 61, 61);
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    border: 2px solid #806B02;
+    border-radius: 18px;
+    color: white;
+}
+.svida{
+    background: rgb(0,128,0);
+    background: linear-gradient(90deg, rgba(0,128,0,1) 0%, rgba(61,61,61,1) 100%); 
+    color: white;
+    border-radius: 18px;
+    padding-left: 1rem;
+}
+.svida > img{
+    height: 1rem;
+}
+.nesvida{
+    background: red;
+    background: linear-gradient(90deg, red 0%, rgba(61,61,61,1) 100%);     color: white;
+    padding-left: 1rem;
+    border-radius: 18px;
+
+}
+.nesvida > img{
+    height: 1rem;
+}
