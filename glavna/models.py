@@ -12,6 +12,41 @@ class Category(models.Model):
 
     def __str__(self):
         return self.caption
+    
+class Platforms(models.Model):
+    platform_name=models.CharField(max_length=40)
+
+    def __str__(self):
+            return self.platform_name
+class Genre(models.Model):
+    genre=models.CharField(max_length=40,null=True, blank=True)
+
+    def __str__(self):
+            return self.genre
+class Studio(models.Model):
+    studio=models.CharField(max_length=40, null=True, blank=True)
+
+    def __str__(self):
+            return self.studio
+class Producer(models.Model):
+    producer=models.CharField(max_length=40,null=True, blank=True)
+
+    def __str__(self):
+            return self.producer
+
+class Igdb(models.Model):
+    name = models.CharField(max_length=200)
+    cover_url = models.ImageField(null=True)
+    summary = models.TextField(null=True)
+    rating = models.FloatField(null=True)
+    release_date = models.DateField(null=True)
+    genre = models.ForeignKey(Genre, on_delete=models.CASCADE, null=True, blank=True)
+    platforms = models.ForeignKey(Platforms, on_delete=models.CASCADE, null=True, blank=True)
+    studio = models.ForeignKey(Studio, on_delete=models.CASCADE, null=True, blank=True)
+    producer = models.ForeignKey(Producer, on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
 
 class Video(models.Model):
     title = models.CharField(max_length=100)
@@ -19,9 +54,10 @@ class Video(models.Model):
     video = models.FileField(upload_to='videos/video/', validators=[FileExtensionValidator(allowed_extensions=["mp4", "mov"])])
     date = models.DateTimeField(auto_now=True)
     slug = models.SlugField(unique=True)
-    user = models.OneToOneField(User, related_name='user',on_delete=models.CASCADE)    
-    description=models.TextField(validators=[MinLengthValidator(10)])
-    category= models.ForeignKey(Category, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='user',on_delete=models.CASCADE, unique=False)    
+    description=models.TextField(validators=[MinLengthValidator(10)], blank=True)
+    category= models.ForeignKey(Category, on_delete=models.CASCADE, blank=True)
+    game = models.ForeignKey(Igdb, on_delete=models.CASCADE, null=True,blank=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)

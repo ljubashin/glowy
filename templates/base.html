@@ -17,7 +17,7 @@
           <li><a href="{% url "home" %}"><span class="material-symbols-outlined">home</span></a></li>
           <li>
             {% if user.is_authenticated %}
-              <a href="#"><span class="material-symbols-outlined">video_call</span></a>            
+              <a href="{% url "upload" %}"><span class="material-symbols-outlined">video_call</span></a>            
             {% else %}
               <a href="{% url "login" %}"><span class="material-symbols-outlined"> video_call </span></a>
             {% endif %}

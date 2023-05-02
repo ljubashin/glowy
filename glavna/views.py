@@ -1,9 +1,9 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.shortcuts import render, redirect
+from django.views.generic import TemplateView, ListView, DetailView
 from django.views import View
-from .models import Video
+from .models import Video, User
 from django.http import HttpResponseRedirect
-from .forms import komentariform
+from .forms import komentariform, videoupload
 from django.urls import reverse
 
 # Create your views here.
@@ -16,10 +16,23 @@ class homepageView(ListView):
 
     def get_queryset(self):
         querySet = super().get_queryset()
-        data = querySet[:4]
+        data = querySet[:20]
         return data
 
-class videopage(View):
+def uploadpage(request):
+    if request.method == "POST":
+        form = videoupload(request.POST or None, request.FILES or None)
+        if form.is_valid():
+            video = form.save(commit=False)
+            video.user = request.user
+            video.save()
+            return redirect("home")
+    else:
+        form = videoupload()
+    
+    return render(request, "glavna/upload.html", {"form": form})
+
+class videopage(DetailView):
     def get(self,request, slug):
         video = Video.objects.get(slug=slug)
         context = {
