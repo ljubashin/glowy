@@ -29,5 +29,3 @@ class videoupload(forms.ModelForm):
         model = Video
         fields = ['title', 'description', 'thumbnail', 'video','category', 'game']
         exclude = ("date","user", "slug")
-
-        

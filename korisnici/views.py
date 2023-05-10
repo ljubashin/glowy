@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from .forms import RegisterUserForm
+from .forms import RegisterUserForm, UpdateProfileForm, ImageUpdateForm
 from django.contrib import messages
 
 # Create your views here.
@@ -43,4 +43,20 @@ def logout_user(request):
 
 @login_required
 def profil(request):
-    return render(request, 'logiranje/profil.html')
+    if request.method == 'POST':
+        username_form = UpdateProfileForm(request.POST, instance=request.user)
+        img_form = ImageUpdateForm(request.POST, request.FILES, instance=request.user.profil)
+        if username_form.is_valid() and img_form.is_valid():
+            username_form.save()
+            img_form.save()
+            messages.success(request, ("User information is successfully saved!"))
+            return redirect('profile')
+    else:
+        username_form = UpdateProfileForm(instance=request.user)
+        img_form = ImageUpdateForm(instance=request.user.profil)
+
+    context = {
+        "username_form": username_form,
+        "img_form": img_form
+    }
+    return render(request, 'logiranje/profil.html',context)

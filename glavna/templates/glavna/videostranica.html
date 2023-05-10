@@ -47,9 +47,9 @@
                 {% for review in reviews %}
                         <li class ="review">
                             {% if review.like %}
-                            <h2 class="svida">{{review.user}} liked this video!</h2>
+                            <h2 class="svida">{{review.user_name}} gave a positive response!</h2>
                             {% else %}
-                            <h2 class="nesvida">{{review.user}} didn't like this video!</h2>
+                            <h2 class="nesvida">{{review.user_name}} gave a negative response!</h2>
                             {% endif %}
                             <p>{{ review.text|linebreaks }}</p>
                             <p>{{ review.date }}</p>

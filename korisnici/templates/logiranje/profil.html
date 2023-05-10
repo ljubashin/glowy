@@ -11,6 +11,36 @@
   {{user.username}}
 {% endblock title %}
 {% block content %}
-    <img src="{{ user.profil.image.url }}" alt="">
-    <h1 class="imeprofila">{{user.username}}</h1>
+<div class="profil">
+    <div class="profil-info">
+      <img class="profilna" src="{{ user.profil.image.url }}" alt="">
+      <div class="informacije">
+        <br>
+        <h1 class="imeprofila">{{user.username}}</h1>
+        <h1 class="mail">{{user.email}}</h1>
+        <br>
+        <p class="poruka">
+        {% for message in messages %}
+          {{message}}
+        {% endfor %}
+      </p>
+      </div>
+    </div>
+    <div class="sidebar">
+      <h1>Change user information</h1>
+      <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <br>
+      {{ username_form }}
+      <br>  
+      <img src="{{ user.profil.image.url }}">
+      {{ img_form }}
+      <button type="submit">Update</button>
+    </form>
+    </div>
+    <div class="under-profile">
+      
+    </div>
+</div>
+      
 {% endblock content %}

@@ -36,7 +36,7 @@ class Producer(models.Model):
 
 class Igdb(models.Model):
     name = models.CharField(max_length=200)
-    cover_url = models.ImageField(null=True)
+    cover_url = models.ImageField(null=True,upload_to="igdb/covers/")
     summary = models.TextField(null=True)
     rating = models.FloatField(null=True)
     release_date = models.DateField(null=True)

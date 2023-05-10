@@ -1,12 +1,100 @@
 @import url("https://fonts.googleapis.com/css?family=Neucha");
 
-.imeprofila{
-    margin-top: 5%;
-    margin-left:10%;
+.profil {
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-columns: 1fr;
+    gap: 0em 0em;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "profil-info sidebar"
+      "under-profile sidebar";
+  }
+  .profil-info {
+    margin-top: 7%;
+    grid-area: profil-info;
+    background-color: rgb(39, 39, 39);
+ }
+  .sidebar { 
+    margin-top: 15%;
+    grid-area: sidebar; 
+    background-color: rgb(61, 61, 61);
+    padding: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: normal;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+  .under-profile {
+    grid-area: under-profile;
+}
+button{
+    margin-top: 1rem;
+    color: white;
     font-family: 'Neucha';
     font-style: normal;
     font-weight: 400;
-    font-size: 30px;
-    line-height: 33px;
+    font-size: 20px;
+    width: 80%;
+    height: 45px;
+    background: #806B02;
+    border-radius: 18px;
+    border: none;
+    margin-left: 10%;
+    margin-right: 10%;    
+}
+button:hover{
+    transition: 0.5s;
+    background: none;
+    border: 1px solid #806B02;
+    border-radius: 18px;
+}
+.profil-info {  display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    grid-template-rows: 1fr;
+    grid-auto-columns: 1fr;
+    gap: 0em 0em;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "profilna informacije";
+  }
+  
+  .profilna { 
+    grid-area: profilna; 
+    margin: 1rem;
+}
+  
+  .informacije { 
+    grid-area: informacije; 
+    font-family: 'Courier New', Courier, monospace;
+    font-style: normal;
+    font-size: 20px;
     color: #FFFFFF;
+}
+
+input[type=text]{
+  font-family: 'Neucha';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  box-sizing: border-box;
+  border: 2px solid #806B02;
+  border-radius: 18px;
+  height: 10%;
+  width: 80%;
+  margin-left: 10%;
+  line-height: 0;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-color: transparent;
+  padding:0 20px;
+  color: white;
+}
+.poruka{
+  background: rgb(0,128,0);
+  background: linear-gradient(90deg, rgba(0,128,0,1) 0%, rgb(39, 39, 39) 100%); 
+  color: white;
+  border-radius: 18px;
+  padding-left: 1rem;
 }
