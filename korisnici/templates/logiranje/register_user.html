@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="{% static 'korisnici/register.css' %}">
   <link rel="stylesheet" href="{% static '/base.css' %}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
   <link rel="shortcut icon" href="{% static 'korisnici/favicon.ico' %}" type="image/x-icon">
 {% endblock css_files %}
 
@@ -12,6 +13,11 @@
   Login
 {% endblock title %}
 {% block content %}
+  <div class="register-forma">
+    <div class="pravila">
+      <model-viewer class="tride" src="{% static 'korisnici/modeli/login.glb' %}" camera-controls shadow-intensity="1" min-camera-orbit="-23deg 80deg 17.17m" max-camera-orbit="23deg 94deg auto" min-field-of-view="25deg" min-field-of-view="20.11deg"></model-viewer>
+    </div>
+    <div class="forma">
     <form autocomplete='off' action="" method=POST>
         {% csrf_token %}
         <br>
@@ -24,4 +30,6 @@
         <button class='loginbutton' type="submit">Signup</button>
         <a class="signup" href="{% url "login" %}">Login</a>
     </form>
+  </div>
+</div>
 {% endblock content %}
