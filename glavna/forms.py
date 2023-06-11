@@ -5,13 +5,13 @@ class komentariform(forms.ModelForm):
     class Meta:
         model = komentari
         exclude = ["video","date","user_name"]
-        label = {
-            "text": "Your Comment",
-            "like": "Do you like this game"
+        labels = {
+            "text": "Write us what you think about the video:",
+            "like": "Is the comment positive or negative?"
         }
         widgets = {
             "text" : forms.Textarea(attrs={'class': "form__field"}),
-            "like" : forms.RadioSelect(choices=((False,"No"),(True,"Yes")),attrs={'class': "boolean"})
+            "like" : forms.RadioSelect(choices=((True,"It was positive"),(False,"It was negative")),attrs={'class': "boolean"})
         }
 
 class videoupload(forms.ModelForm):

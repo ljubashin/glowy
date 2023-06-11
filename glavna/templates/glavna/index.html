@@ -20,9 +20,11 @@
       <br>
       <h1>FEATURED</h1>
       <br>
-      {% for video in videos %}
-        {% include 'glavna/includes/videos.html' %}
-      {% endfor %}
+      <div class="videogrid">
+        {% for video in videos %}
+          {% include 'glavna/includes/videos.html' %}
+        {% endfor %}
+      </div>
       <br>
     </div>
 {% endblock content %}

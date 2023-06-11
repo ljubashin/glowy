@@ -11,7 +11,7 @@
 {% block content %}
     <div class="podloga">
         <div class="prvi">
-            <video src="{{ video.video.url }}" type="video/mp4" controls preload autoplay></video>
+            <video src="{{ video.video.url }}" type="video/mp4" controls="controls" autoplay></video>
             <div class="ispodvidea">
                 <p class="ime">{{ video.title }}</p>
                 <p class="kategorija">{{video.category}}</p>
@@ -28,22 +28,27 @@
             </div>
         </div>
         <div class="drugi">
-            <div class="forma">
-                <form class="" action="{% url "video" video.slug %}" method="POST">
-                    {% csrf_token %}
-                    {% for form_field in review_form %}
-                        {{form_field.label_tag}}
-                        {{form_field}}
-                    {% endfor %}
-                    <div class="button-okvir">
-                    <button class="reviewbutton">Post</button>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                </form>
-            </div>
-            <div>
+            {% if user.is_authenticated %}
+                <div class="forma">
+                    <form class="" action="{% url "video" video.slug %}" method="POST">
+                        {% csrf_token %}
+                        {% for form_field in review_form %}
+                            <br>
+                            <p>{{form_field.label_tag}}</p>
+                            {{form_field}}
+                        {% endfor %}
+                        <div class="button-okvir">
+                        <button class="reviewbutton">Post</button>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                    </form>
+                </div>
+                <div>
+            {% else %}
+                <h1 class="pls-login">Please <a href="{% url "login" %}">log in</a> or <a href="{% url "register" %}">sign in</a> <br> to comment on this video!</h1>
+            {% endif %}
                 {% for review in reviews %}
                         <li class ="review">
                             {% if review.like %}
